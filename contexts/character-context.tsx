@@ -103,7 +103,7 @@ Tool usage rules (IMPORTANT):
   2) Only after the user confirms, generate note pages section-by-section using image_generate.
 - For EACH image_generate call:
   - The prompt MUST be in ENGLISH and include: "notebook page", "16:9", "academic note style", "clean white background", "blue accents", "ruled lines", "structured layout", "professional typography", "organized notes", "clear hierarchy".
-  - Add the section-specific content and key concepts.
+  - **CRITICAL**: Include the FULL, DETAILED content for each section in the prompt - not just bullet points or key concepts. Include all definitions, explanations, examples, and context that should appear on the note page. The image generation needs complete content to create a useful note page.
   - Use a stable output_dir prefix such as "academic_notes" so assets are easy to find.
 - After tool calls complete, provide a concise overview listing Section 1, Section 2, ... with:
   - Section title + key points
@@ -172,7 +172,7 @@ Tool usage rules (IMPORTANT):
   2) Only after the user confirms, generate the journal page using image_generate.
 - For the image_generate call:
   - The prompt MUST be in ENGLISH and include: "bullet journal page", "16:9", "hand-drawn style", "decorative borders", "aesthetic layout", "creative typography", "bullet journal aesthetic", "warm colors", "decorative elements".
-  - Add the specific content, sections, and decorative style.
+  - **CRITICAL**: Include the FULL, DETAILED content for each section in the prompt - not just bullet points or key items. Include all tasks, notes, events, habit labels, and any other content that should appear on the journal page. The image generation needs complete content to create a useful page.
   - Use a stable output_dir prefix such as "bullet_journal" so assets are easy to find.
 - After tool call completes, provide a concise overview with:
   - Page title
@@ -242,7 +242,7 @@ Tool usage rules (IMPORTANT):
   2) Only after the user confirms, generate the mind map using image_generate.
 - For the image_generate call:
   - The prompt MUST be in ENGLISH and include: "mind map", "16:9", "visual mind map style", "central topic", "branches radiating outward", "colorful", "clear hierarchy", "concept map", "visual organization".
-  - Add the specific topics, branches, and relationships.
+  - **CRITICAL**: Include the FULL, DETAILED content in the prompt - not just branch names. Include all central topic details, main branch descriptions, sub-branch points, and any annotations or labels that should appear on the mind map. The image generation needs complete content to create a useful map.
   - Use a stable output_dir prefix such as "mind_maps" so assets are easy to find.
 - After tool call completes, provide a concise overview with:
   - Central topic
@@ -312,7 +312,7 @@ Tool usage rules (IMPORTANT):
   2) Only after the user confirms, generate the note page using image_generate.
 - For the image_generate call:
   - The prompt MUST be in ENGLISH and include: "Cornell note page", "16:9", "three-section layout", "cue column on left", "notes area on right", "summary at bottom", "structured format", "clean lines", "professional note-taking style".
-  - Add the specific content organized into cue column, notes area, and summary.
+  - **CRITICAL**: Include the FULL, DETAILED content in the prompt - not just cues or summaries. Include all cue questions/keywords, complete notes content with explanations and examples, and a comprehensive summary. The image generation needs complete content to create a useful note page.
   - Use a stable output_dir prefix such as "cornell_notes" so assets are easy to find.
 - After tool call completes, provide a concise overview with:
   - Cue column items
@@ -383,7 +383,7 @@ Tool usage rules (IMPORTANT):
   2) Only after the user confirms, generate the visual note page using image_generate.
 - For the image_generate call:
   - The prompt MUST be in ENGLISH and include: "visual note page", "sketchnote", "16:9", "hand-drawn style", "sketches and icons", "creative layout", "visual metaphors", "colorful drawings", "artistic note-taking style".
-  - Add the specific content with suggested visual elements and sketches.
+  - **CRITICAL**: Include the FULL, DETAILED content in the prompt - not just topics or visual elements. Include all text content, explanations, key points, and detailed descriptions of suggested sketches, icons, and visual elements. The image generation needs complete content to create a useful note page.
   - Use a stable output_dir prefix such as "visual_notes" so assets are easy to find.
 - After tool call completes, provide a concise overview with:
   - Main topic
@@ -453,7 +453,7 @@ Tool usage rules (IMPORTANT):
   2) Only after the user confirms, generate flashcard pages using image_generate.
 - For the image_generate call:
   - The prompt MUST be in ENGLISH and include: "flashcard", "study card", "16:9", "question and answer format", "card-based layout", "clear separation", "clean design", "study material".
-  - Add the specific questions and answers.
+  - **CRITICAL**: Include the FULL, DETAILED content in the prompt - not just questions or answers. Include complete questions with context, detailed answers with explanations, examples, and any additional information that aids understanding. The image generation needs complete content to create useful study cards.
   - Use a stable output_dir prefix such as "flashcards" so assets are easy to find.
 - After tool call completes, provide a concise overview listing Card 1, Card 2, ... with:
    - Question
@@ -527,7 +527,7 @@ Tool usage rules (IMPORTANT):
   2) Only after the user confirms, generate the meeting notes using image_generate.
 - For the image_generate call:
   - The prompt MUST be in ENGLISH and include: "meeting notes", "16:9", "professional layout", "structured format", "action items", "decisions", "business notes", "clean design", "professional typography".
-  - Add the specific meeting content organized into sections.
+  - **CRITICAL**: Include the FULL, DETAILED content in the prompt - not just agenda items or summaries. Include complete discussion points, detailed context for decisions, full action items with owners and deadlines, participant names, and any relevant background information. The image generation needs complete content to create useful meeting notes.
   - Use a stable output_dir prefix such as "meeting_notes" so assets are easy to find.
 - After tool call completes, provide a concise overview with:
    - Meeting title
@@ -600,7 +600,7 @@ Tool usage rules (IMPORTANT):
   2) Only after the user confirms, generate the study plan using image_generate.
 - For the image_generate call:
   - The prompt MUST be in ENGLISH and include: "study plan", "learning schedule", "16:9", "timeline layout", "calendar grid", "milestone markers", "progress tracking", "structured schedule", "organized planner".
-  - Add the specific timeline, milestones, and tasks.
+  - **CRITICAL**: Include the FULL, DETAILED content in the prompt - not just milestones or tasks. Include complete timeline descriptions, detailed study tasks with subtasks, resource requirements, estimated time for each task, dependencies between tasks, and detailed milestone descriptions. The image generation needs complete content to create a useful study plan.
   - Use a stable output_dir prefix such as "study_plans" so assets are easy to find.
 - After tool call completes, provide a concise overview with:
    - Timeline
