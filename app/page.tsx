@@ -15,16 +15,32 @@ import { Badge } from "@/components/ui/badge";
 import { hasEnvVars } from "@/lib/utils";
 import { useCharacter } from "@/contexts/character-context";
 
-const GITHUB_OPEN_SOURCE_URL = "https://github.com/mbt1909432/ppt-girl";
+const GITHUB_OPEN_SOURCE_URL = "https://github.com/mbt1909432/notebook-girl";
 
 // Character Grid Component
 function CharacterGrid() {
   const { characters, characterId, setCharacter } = useCharacter();
 
+  // Map character IDs to note style labels and emojis
+  const getNoteStyleInfo = (id: string) => {
+    const styleMap = {
+      character1: { label: "Academic Notes", emoji: "📚", color: "bg-blue-500/10 text-blue-600 dark:text-blue-400" },
+      character2: { label: "Bullet Journal", emoji: "📝", color: "bg-orange-500/10 text-orange-600 dark:text-orange-400" },
+      character3: { label: "Mind Map", emoji: "🧠", color: "bg-green-500/10 text-green-600 dark:text-green-400" },
+      character4: { label: "Cornell Notes", emoji: "📋", color: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400" },
+      character5: { label: "Visual Notes", emoji: "🎨", color: "bg-pink-500/10 text-pink-600 dark:text-pink-400" },
+      character6: { label: "Flashcards", emoji: "🃏", color: "bg-purple-500/10 text-purple-600 dark:text-purple-400" },
+      character7: { label: "Meeting Notes", emoji: "💼", color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400" },
+      character8: { label: "Study Planner", emoji: "📅", color: "bg-teal-500/10 text-teal-600 dark:text-teal-400" },
+    };
+    return styleMap[id as keyof typeof styleMap] || { label: "Notes", emoji: "📄", color: "bg-gray-500/10 text-gray-600 dark:text-gray-400" };
+  };
+
   return (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
       {characters.map((char) => {
         const isActive = char.id === characterId;
+        const styleInfo = getNoteStyleInfo(char.id);
         return (
           <button
             key={char.id}
@@ -47,11 +63,20 @@ function CharacterGrid() {
                 <div className="pointer-events-none absolute inset-0 bg-primary/10" />
               )}
             </div>
-            <div className="p-3">
-              <h3 className="font-semibold text-sm mb-1">{char.name}</h3>
-              <p className="text-xs text-muted-foreground line-clamp-2">{char.tagline}</p>
+            <div className="p-3 space-y-2">
+              {/* Note style badge */}
+              <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium ${styleInfo.color}`}>
+                <span>{styleInfo.emoji}</span>
+                <span>{styleInfo.label}</span>
+              </div>
+              {/* Character name */}
+              <h3 className="font-semibold text-sm">{char.name}</h3>
+              {/* Short description */}
+              <p className="text-xs text-muted-foreground line-clamp-2">
+                {char.tagline}
+              </p>
               {isActive && (
-                <Badge variant="default" className="mt-2 text-xs">
+                <Badge variant="default" className="mt-1 text-xs">
                   Active
                 </Badge>
               )}
@@ -143,7 +168,7 @@ export default function Home() {
               <Link href="/" className="group flex items-center gap-2 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]">
                 <img src="/icon.svg" alt="" className="h-7 w-7 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 sm:h-8 sm:w-8" />
                 <span className="text-base font-semibold tracking-tight transition-colors duration-200 group-hover:text-primary sm:text-xl">
-                  PPT Girl
+                  Notebook Girl
                 </span>
               </Link>
             </div>
@@ -158,13 +183,13 @@ export default function Home() {
         {/* Main Hero Section */}
         <div className="relative min-h-[calc(100vh-4rem)] flex items-center">
           <div className="mx-auto w-full max-w-[1600px] px-4 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-24">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] lg:items-center">
+            <div className="grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] lg:items-center">
               {/* Left: main copy + CTA */}
               <div className="max-w-3xl space-y-8 sm:space-y-10 lg:space-y-12">
                 {/* Tag */}
                 <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
                   <Badge variant="secondary" className="text-sm sm:text-base">
-                    PPT Girl · AI Slide Generator
+                    Notebook Girl · AI Note Assistant
                   </Badge>
                 </div>
 
@@ -172,11 +197,11 @@ export default function Home() {
                 <div className="space-y-6 animate-slide-up" style={{ animationDelay: "0.3s" }}>
                   <h1 className="text-5xl font-bold leading-tight sm:text-6xl md:text-7xl lg:text-8xl">
                     <span className="block text-primary">Chat to Create</span>
-                    <span className="block">Beautiful PPT Slides</span>
+                    <span className="block">Beautiful Structured Notes</span>
                   </h1>
 
                   <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl lg:text-2xl">
-                    Turn any text into professional presentations in minutes. Choose your AI designer, chat about your topic, and get stunning 16:9 slide visuals ready for your deck.
+                    Turn any content into structured, organized notes in minutes. Choose your note style, chat about your topic, and get beautiful 16:9 note pages ready for study or reference.
                   </p>
                 </div>
 
@@ -188,7 +213,7 @@ export default function Home() {
                         size="lg"
                         className="text-lg px-8 py-7 h-auto font-semibold transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg"
                       >
-                        Start Creating Slides
+                        Start Creating Notes
                         <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
                       </Button>
                     </Link>
@@ -215,7 +240,7 @@ export default function Home() {
 
                   {/* Feature tags */}
                   <div className="flex flex-wrap gap-3 pt-2">
-                    {["8 AI Designers", "Smart Outline", "16:9 Ready"].map((tag, index) => (
+                    {["8 Note Styles", "Smart Outline", "16:9 Ready"].map((tag, index) => (
                       <Badge
                         key={tag}
                         variant="outline"
@@ -264,7 +289,7 @@ export default function Home() {
                         : "opacity-0 translate-y-2 scale-95 pointer-events-none"
                     }`}
                   >
-                    <Card className="max-w-xl w-[360px] sm:w-[420px] bg-card/70 backdrop-blur-md border-border/60 shadow-2xl dark:bg-neutral-900/80 dark:border-neutral-800 max-h-[70vh] overflow-auto">
+                    <Card className="w-[90vw] max-w-[360px] sm:w-[420px] sm:max-w-xl bg-card/70 backdrop-blur-md border-border/60 shadow-2xl dark:bg-neutral-900/80 dark:border-neutral-800 max-h-[70vh] overflow-auto">
                       <CardHeader className="pb-2">
                         <div className="flex items-center justify-between gap-3">
                           <div>
@@ -374,7 +399,7 @@ export default function Home() {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">How It Works</h2>
-                <p className="text-muted-foreground text-lg">Create professional slides in three simple steps</p>
+                <p className="text-muted-foreground text-lg">Create structured notes in three simple steps</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="text-center space-y-4">
@@ -383,7 +408,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-semibold">Paste Your Content</h3>
                   <p className="text-muted-foreground">
-                    Share your text, notes, or topic. PPT Girl analyzes and proposes a slide-by-slide outline.
+                    Share your content, notes, or topic. Notebook Girl analyzes and proposes a structured note outline.
                   </p>
                 </div>
                 <div className="text-center space-y-4">
@@ -399,9 +424,9 @@ export default function Home() {
                   <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-2xl font-bold text-primary">
                     3
                   </div>
-                  <h3 className="text-xl font-semibold">Get Your Slides</h3>
+                  <h3 className="text-xl font-semibold">Get Your Notes</h3>
                   <p className="text-muted-foreground">
-                    PPT Girl generates beautiful 16:9 slide images with consistent style, ready for your presentation.
+                    Notebook Girl generates beautiful 16:9 note pages with consistent style, ready for study or reference.
                   </p>
                 </div>
               </div>
@@ -414,8 +439,18 @@ export default function Home() {
           <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-12">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Choose Your AI Designer</h2>
-                <p className="text-muted-foreground text-lg">8 unique characters, each with their own visual style and expertise</p>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Choose Your Note Style</h2>
+                <p className="text-muted-foreground text-lg">Each character specializes in a different note-taking method. Select one to start creating notes.</p>
+                <div className="mt-4 flex flex-wrap justify-center gap-2 text-xs text-muted-foreground">
+                  <span className="px-2 py-1 bg-muted rounded">📚 Academic</span>
+                  <span className="px-2 py-1 bg-muted rounded">📝 Bullet</span>
+                  <span className="px-2 py-1 bg-muted rounded">🧠 Mind Map</span>
+                  <span className="px-2 py-1 bg-muted rounded">📋 Cornell</span>
+                  <span className="px-2 py-1 bg-muted rounded">🎨 Visual</span>
+                  <span className="px-2 py-1 bg-muted rounded">🃏 Flashcard</span>
+                  <span className="px-2 py-1 bg-muted rounded">💼 Meeting</span>
+                  <span className="px-2 py-1 bg-muted rounded">📅 Planner</span>
+                </div>
               </div>
               <CharacterGrid />
             </div>
@@ -430,12 +465,12 @@ export default function Home() {
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">Powered by Acontext</h2>
                 <p className="text-muted-foreground text-lg">Intelligent memory and context awareness for better results</p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card className="border-primary/20">
                   <CardContent className="pt-6">
                     <h3 className="text-lg font-semibold mb-2">🧠 Persistent Memory</h3>
                     <p className="text-sm text-muted-foreground">
-                      PPT Girl remembers your previous slides, preferences, and presentation structure across sessions.
+                      Notebook Girl remembers your previous notes, preferences, and note structure across sessions.
                     </p>
                   </CardContent>
                 </Card>
@@ -451,7 +486,7 @@ export default function Home() {
                   <CardContent className="pt-6">
                     <h3 className="text-lg font-semibold mb-2">📈 Learning Over Time</h3>
                   <p className="text-sm text-muted-foreground">
-                    The more presentations you create, the better PPT Girl understands your style and preferences.
+                    The more notes you create, the better Notebook Girl understands your style and preferences.
                   </p>
                   </CardContent>
                 </Card>
@@ -459,7 +494,7 @@ export default function Home() {
                   <CardContent className="pt-6">
                     <h3 className="text-lg font-semibold mb-2">💾 Automatic Storage</h3>
                     <p className="text-sm text-muted-foreground">
-                      All generated slides are automatically stored in Acontext Disk with shareable URLs for easy access.
+                      All generated notes are automatically stored in Acontext Disk with shareable URLs for easy access.
                     </p>
                   </CardContent>
                 </Card>
@@ -482,7 +517,7 @@ export default function Home() {
           <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-12">
             <div className="text-center">
               <p className="text-xs text-muted-foreground">
-                © 2026 PPT Girl Slide Generator
+                © 2026 Notebook Girl Note Assistant
               </p>
               <p className="mt-2 text-xs text-muted-foreground">
                 <Link

@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is **Acontext PPT Girl Slide Generator** - an intelligent PPT slide generation system powered by Acontext. Users chat with "PPT Girl" to create professional cyberpunk-style slide images through natural conversation. Built with Next.js 15+ (App Router), TypeScript, Supabase for auth/persistence, and Acontext for AI/memory.
+This is **Notebook Girl · AI Note Assistant** - an intelligent note generation system powered by Acontext. Users chat with "Notebook Girl" to create structured note pages through natural conversation. Built with Next.js 15+ (App Router), TypeScript, Supabase for auth/persistence, and Acontext for AI/memory.
 
-**Key workflow**: Input content → PPT Girl proposes outline → User confirms → Generate 16:9 cyberpunk slides → Store to Acontext Disk → Share via URLs.
+**Key workflow**: Input content → Notebook Girl proposes outline → User confirms → Generate 16:9 note pages → Store to Acontext Disk → Share via URLs.
 
 ## Development Commands
 
@@ -35,7 +35,7 @@ npx tsx path/to/file.ts
 
 2. **Acontext as Primary Storage**: Messages are stored in Acontext sessions. Supabase `chat_messages` table is legacy - messages are loaded via `loadMessagesFromAcontext()`.
 
-3. **Character Locking**: Each session locks to a specific character (PPT Girl variants). The `characterId` is stored in `chat_sessions.character_id` and affects tool behavior (e.g., image generation uses character reference images).
+3. **Character Locking**: Each session locks to a specific character (Notebook Girl variants). The `characterId` is stored in `chat_sessions.character_id` and affects tool behavior (e.g., image generation uses character reference images).
 
 4. **Context Management**: Automatic token-based context editing kicks in at 80K tokens. Users can manually compress context at 70K via `compressSessionContext()`.
 

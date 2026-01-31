@@ -1007,7 +1007,7 @@ export function ChatbotPanel({
   className,
   fullPage = false,
   systemPrompt,
-  assistantName = "PPT Girl",
+  assistantName = "Notebook Girl",
   assistantAvatarSrc,
   initialSessionId,
 }: ChatbotPanelProps) {
@@ -2900,7 +2900,7 @@ export function ChatbotPanel({
 
     return (
       <div className={className}>
-        <Card className="fixed bottom-4 left-1/2 z-50 flex h-[70vh] w-full max-w-md -translate-x-1/2 flex-col shadow-xl sm:bottom-6 sm:right-6 sm:left-auto sm:translate-x-0 sm:h-[600px] sm:w-96">
+        <Card className="fixed bottom-4 left-4 right-4 z-50 flex h-[60vh] sm:bottom-6 sm:right-6 sm:left-auto sm:h-[600px] sm:w-96 flex-col shadow-xl">
           <CardHeader className="flex flex-row items-center justify-between pb-3">
             <CardTitle>Chatbot</CardTitle>
             <Button
@@ -3480,15 +3480,39 @@ export function ChatbotPanel({
             )}
             {/* Character selection embedded in message area */}
             {messages.length === 0 && !sessionId && showCharacterSelectModal && !loadingSessionId && (
-              <div className="flex-1 flex flex-col items-center justify-center py-6 px-4 min-h-0">
-                <div className="w-full max-w-5xl">
-                  <div className="text-center mb-6">
-                    <h2 className="text-xl sm:text-2xl font-bold mb-2">Choose Your AI Designer</h2>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Select a character for this new session</p>
-                  </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+              <div className="flex-1 overflow-y-auto">
+                <div className="py-6 px-4 min-w-0">
+                  <div className="w-full max-w-5xl mx-auto">
+                    <div className="text-center mb-6">
+                      <h2 className="text-xl sm:text-2xl font-bold mb-2">Choose Your Note Style</h2>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Each style specializes in a different note-taking method</p>
+                      <div className="mt-3 flex flex-wrap justify-center gap-1.5 text-[10px] text-muted-foreground">
+                        <span>📚</span><span>Academic</span>
+                        <span>📝</span><span>Bullet</span>
+                        <span>🧠</span><span>Mind Map</span>
+                        <span>📋</span><span>Cornell</span>
+                        <span>🎨</span><span>Visual</span>
+                        <span>🃏</span><span>Flashcard</span>
+                        <span>💼</span><span>Meeting</span>
+                        <span>📅</span><span>Planner</span>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
                     {characters.map((char) => {
                       const isSelected = selectedCharacterForNewSession === char.id;
+                      // Get note style info
+                      const styleMap: Record<string, {emoji: string; label: string; color: string}> = {
+                        character1: { emoji: "📚", label: "Academic", color: "bg-blue-500/10 text-blue-600 dark:text-blue-400" },
+                        character2: { emoji: "📝", label: "Bullet", color: "bg-orange-500/10 text-orange-600 dark:text-orange-400" },
+                        character3: { emoji: "🧠", label: "Mind Map", color: "bg-green-500/10 text-green-600 dark:text-green-400" },
+                        character4: { emoji: "📋", label: "Cornell", color: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400" },
+                        character5: { emoji: "🎨", label: "Visual", color: "bg-pink-500/10 text-pink-600 dark:text-pink-400" },
+                        character6: { emoji: "🃏", label: "Flashcard", color: "bg-purple-500/10 text-purple-600 dark:text-purple-400" },
+                        character7: { emoji: "💼", label: "Meeting", color: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400" },
+                        character8: { emoji: "📅", label: "Planner", color: "bg-teal-500/10 text-teal-600 dark:text-teal-400" },
+                      };
+                      const styleInfo = styleMap[char.id] || { emoji: "📄", label: "Notes", color: "bg-gray-500/10 text-gray-600 dark:text-gray-400" };
+
                       return (
                         <button
                           key={char.id}
@@ -3513,8 +3537,15 @@ export function ChatbotPanel({
                               <div className="pointer-events-none absolute inset-0 bg-primary/10" />
                             )}
                           </div>
-                          <div className="p-2.5 sm:p-3">
-                            <h3 className="font-semibold text-xs sm:text-sm mb-1">{char.name}</h3>
+                          <div className="p-2.5 sm:p-3 space-y-1">
+                            {/* Note style badge */}
+                            <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-medium ${styleInfo.color}`}>
+                              <span>{styleInfo.emoji}</span>
+                              <span>{styleInfo.label}</span>
+                            </div>
+                            {/* Character name */}
+                            <h3 className="font-semibold text-xs sm:text-sm">{char.name}</h3>
+                            {/* Short description */}
                             <p className="text-[10px] sm:text-xs text-muted-foreground line-clamp-2 leading-relaxed">{char.tagline}</p>
                             {isSelected && (
                               <Badge variant="default" className="mt-1.5 text-[10px] px-1.5 py-0.5">
@@ -3526,6 +3557,7 @@ export function ChatbotPanel({
                       );
                     })}
                   </div>
+                </div>
                 </div>
               </div>
             )}

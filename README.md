@@ -1,5 +1,5 @@
 <div align="center">
-  <h1 align="center">Acontext PPT Girl Slide Generator</h1>
+  <h1 align="center">Notebook Girl · AI Note Assistant</h1>
   <p align="center">
     <strong>A PPT-style slide generator experience built on the Acontext Agent Playground template</strong>
   </p>
@@ -15,9 +15,9 @@
   </p>
   
   <p align="center">
-    <img src="./public/fonts/character1/ppt%20girl.png" alt="PPT Girl - Homepage Character" width="300" />
+    <img src="./public/fonts/character1/ppt%20girl.png" alt="Notebook Girl - Homepage Character" width="300" />
     &nbsp;&nbsp;&nbsp;
-    <img src="./public/fonts/character1/ppt_girl_chatbot.png" alt="PPT Girl - Chatbot Avatar" width="200" />
+    <img src="./public/fonts/character1/ppt_girl_chatbot.png" alt="Notebook Girl - Chatbot Avatar" width="200" />
   </p>
 </div>
 
@@ -41,26 +41,26 @@
 
 <br/>
 
-**Acontext PPT Girl Slide Generator** is an intelligent PPT slide generation system powered by [Acontext](https://acontext.io). Simply chat with **"PPT Girl"** about your presentation topic, and she will automatically create beautiful, cyberpunk-style slide images ready for your presentation.
+**Notebook Girl · AI Note Assistant** is an intelligent note generation system powered by [Acontext](https://acontext.io). Simply chat with **"Notebook Girl"** about your content, and she will automatically create beautiful, structured note pages ready for study or reference.
 
 ## 🎯 What It Does
 
-Transform text into professional PPT slides through natural conversation:
+Transform content into structured notes through natural conversation:
 
-1. **Input**: Provide presentation content (text, topics, or outlines)
-2. **Planning**: PPT Girl proposes a slide-by-slide outline
+1. **Input**: Provide content (text, topics, or outlines)
+2. **Planning**: Notebook Girl proposes a structured note outline
 3. **Review**: Confirm the outline
-4. **Generation**: PPT Girl generates 16:9 cyberpunk-style slide images
-5. **Delivery**: Slides are automatically stored and accessible via URLs
+4. **Generation**: Notebook Girl generates 16:9 note page images
+5. **Delivery**: Notes are automatically stored and accessible via URLs
 
 ## ✨ Key Features
 
-- **🎨 AI-Powered Generation**: Natural language conversation to create professional slides
-- **🎨 Consistent Visual Style**: Unified cyberpunk aesthetic across all slides
-- **💾 Persistent Memory**: Remembers your previous slides and preferences across sessions
+- **🎨 AI-Powered Generation**: Natural language conversation to create structured notes
+- **🎨 Consistent Visual Style**: Unified aesthetic across all note pages
+- **💾 Persistent Memory**: Remembers your previous notes and preferences across sessions
 - **🔍 Semantic Search**: Automatically maintains style consistency
-- **📦 Automatic Storage**: All slides stored in Acontext Disk with shareable URLs
-- **🔄 Interactive Workflow**: Review outlines before generation, iterate on specific slides
+- **📦 Automatic Storage**: All notes stored in Acontext Disk with shareable URLs
+- **🔄 Interactive Workflow**: Review outlines before generation, iterate on specific notes
 
 ## 🛠️ Tech Stack
 
@@ -84,8 +84,8 @@ Transform text into professional PPT slides through natural conversation:
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/mbt1909432/ppt-girl.git
-cd ppt-girl
+git clone https://github.com/mbt1909432/notebook-girl.git
+cd notebook-girl
 ```
 
 2. **Install dependencies**
@@ -146,7 +146,7 @@ Visit `http://localhost:3000` to see your application.
 
 ### Deploy to Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmbt1909432%2Fppt-girl&ref=main&project-name=ppt-girl&repository-name=ppt-girl&demo-title=Acontext%20PPT%20Girl%20Slide%20Generator&demo-description=PPT-style%20slide%20generator%20powered%20by%20Acontext%2C%20with%20chat-driven%20workflow%20and%20semantic%20memory.&demo-url=https%3A%2F%2Fppt-girl.vercel.app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmbt1909432%2Fnotebook-girl&ref=main&project-name=notebook-girl&repository-name=notebook-girl&demo-title=Acontext%20Notebook%20Girl%20AI%20Note%20Assistant&demo-description=AI-powered%20note%20assistant%20powered%20by%20Acontext%2C%20with%20chat-driven%20workflow%20and%20semantic%20memory.&demo-url=https%3A%2F%2Fnotebook-girl.vercel.app)
 
 1. Click the "Deploy with Vercel" button above
 2. Vercel will guide you through Supabase setup

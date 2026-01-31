@@ -119,8 +119,8 @@ When the user requests **any modification** to the codebase (UI changes, feature
 
 ## Project-Specific Conventions
 
-### PPT Generation Workflow
-1. User inputs content → 2. PPT Girl proposes outline → 3. User confirms → 4. Generate slides → 5. Store to Acontext Disk
+### Note Generation Workflow
+1. User inputs content → 2. Notebook Girl proposes outline → 3. User confirms → 4. Generate notes → 5. Store to Acontext Disk
 
 ### Session Management
 - Session ID uses Acontext session ID

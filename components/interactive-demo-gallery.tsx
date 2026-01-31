@@ -10,23 +10,21 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 // Bump this value to bust browser/CDN/Next Image caches when slide binaries change.
-const SLIDES_VERSION = "2026-01-20";
+const SLIDES_VERSION = "2026-01-31-notebook";
 
 // Preset messages and corresponding responses
 const PRESET_MESSAGES = [
   {
     id: 1,
-    text: "Help me generate a PPT presentation about Large Language Models (LLMs)",
-    response: "Perfect! I'll create a comprehensive presentation about Large Language Models for you. Here's the 6-slide outline I've prepared:\n\n1. **What is an LLM?** - Definition of LLM, basic concept and purpose\n2. **Key Applications of LLMs** - Text generation, Q&A systems, translation, and summarization\n3. **How Do LLMs Work?** - Overview of architecture (e.g., transformers), training process, and data used\n4. **Advantages and Challenges** - Strengths of LLMs and main challenges (bias, cost, data requirements)\n5. **Future of LLMs** - Current trends, potential future developments, and impact on society\n6. **Advantages and Challenges (Detailed)** - Enhanced efficiency, scalability, creative content generation, and challenges like bias, hallucinations, security risks\n\nI've generated all 6 slides with a futuristic cyberpunk-style design. Let me show them to you!",
-    slides: [1, 2, 3, 4, 5, 6], // Corresponding slide IDs
+    text: "Help me create structured notes about Large Language Models (LLMs)",
+    response: "Perfect! I'll create comprehensive academic notes about Large Language Models for you. Here's the note structure I've prepared:\n\n**Section 1: What is an LLM?**\n- Definition: Large Language Models are AI systems trained on vast amounts of text data\n- Purpose: Understand, generate, and manipulate human language\n- Key characteristics: Contextual understanding, pattern recognition\n\n**Section 2: Key Applications**\n- Text generation (articles, reports, creative writing)\n- Question answering systems\n- Language translation and summarization\n- Code generation and debugging\n\n**Section 3: How LLMs Work**\n- Architecture: Transformer-based neural networks\n- Training process: Pre-training on large datasets + fine-tuning\n- Attention mechanism: Understanding context and relationships\n\n**Section 4: Advantages & Challenges**\n- Strengths: Efficiency, scalability, creative capabilities\n- Challenges: Bias, hallucinations, high computational costs\n- Mitigation strategies and ethical considerations\n\nI've generated all 4 note pages with a clean academic style. Let me show them to you!",
+    slides: [1, 2, 3, 4], // Corresponding note page IDs
     // Define trigger points: text positions where each slide should appear
     slideTriggers: [
-      "1. **What is an LLM?** - Definition of LLM, basic concept and purpose",
-      "2. **Key Applications of LLMs** - Text generation, Q&A systems, translation, and summarization",
-      "3. **How Do LLMs Work?** - Overview of architecture (e.g., transformers), training process, and data used",
-      "4. **Advantages and Challenges** - Strengths of LLMs and main challenges (bias, cost, data requirements)",
-      "5. **Future of LLMs** - Current trends, potential future developments, and impact on society",
-      "6. **Advantages and Challenges (Detailed)** - Enhanced efficiency, scalability, creative content generation, and challenges like bias, hallucinations, security risks",
+      "**Section 1: What is an LLM?**",
+      "**Section 2: Key Applications**",
+      "**Section 3: How LLMs Work**",
+      "**Section 4: Advantages & Challenges**",
     ],
   },
 ];
@@ -34,11 +32,9 @@ const PRESET_MESSAGES = [
 // All available slides
 const SLIDES = [
   { id: 1, src: `/fonts/slides/slide1.jpg?v=${SLIDES_VERSION}`, alt: "What is an LLM?" },
-  { id: 2, src: `/fonts/slides/slide2.jpg?v=${SLIDES_VERSION}`, alt: "Key Applications of LLMs" },
-  { id: 3, src: `/fonts/slides/slide3.jpg?v=${SLIDES_VERSION}`, alt: "How Do LLMs Work?" },
-  { id: 4, src: `/fonts/slides/slide4.jpg?v=${SLIDES_VERSION}`, alt: "Advantages and Challenges" },
-  { id: 5, src: `/fonts/slides/slide5.jpg?v=${SLIDES_VERSION}`, alt: "Future of LLMs" },
-  { id: 6, src: `/fonts/slides/slide6.jpg?v=${SLIDES_VERSION}`, alt: "Advantages and Challenges (Detailed)" },
+  { id: 2, src: `/fonts/slides/slide2.jpg?v=${SLIDES_VERSION}`, alt: "Key Applications" },
+  { id: 3, src: `/fonts/slides/slide3.jpg?v=${SLIDES_VERSION}`, alt: "How LLMs Work" },
+  { id: 4, src: `/fonts/slides/slide4.jpg?v=${SLIDES_VERSION}`, alt: "Advantages & Challenges" },
 ];
 
 interface Message {
@@ -384,14 +380,14 @@ export function InteractiveDemoGallery() {
         </CardContent>
       </Card>
 
-      {/* Right: PPT Gallery */}
+      {/* Right: Notebook Gallery */}
       <Card className="backdrop-blur-sm bg-card/80 border-primary/20 shadow-xl dark:bg-neutral-900/80 dark:border-neutral-800">
         <CardHeader className="pb-3">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-xl sm:text-2xl">PPT Gallery</CardTitle>
+            <CardTitle className="text-xl sm:text-2xl">Notebook Gallery</CardTitle>
             <Badge variant="secondary">
               {displayedSlides.length > 0
-                ? `${displayedSlides.length} Slides`
+                ? `${displayedSlides.length} Notes`
                 : "Waiting to generate"}
             </Badge>
           </div>

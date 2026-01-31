@@ -13,8 +13,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "PPT Girl · AI Slide Generator",
-  description: "Chat with AI designers to create 16:9 presentation slides. Choose your PPT Girl, propose an outline, and generate slide images.",
+  title: "Notebook Girl · AI Note Assistant",
+  description: "Chat with AI note assistants to create structured 16:9 note pages. Choose your note style, propose an outline, and generate beautiful notes.",
   icons: {
     icon: { url: "/icon.svg", type: "image/svg+xml" },
     apple: "/apple-icon.png",

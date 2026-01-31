@@ -1,7 +1,7 @@
 <div align="center">
-  <h1 align="center">Acontext PPT Girl Slide Generator</h1>
+  <h1 align="center">Notebook Girl · AI 笔记助手</h1>
   <p align="center">
-    <strong>基于 Acontext Agent Playground 打造的 PPT 风格幻灯片生成体验</strong>
+    <strong>基于 Acontext Agent Playground 打造的 智能笔记助手体验</strong>
   </p>
   <p align="center">
     由 <a href="https://acontext.io"><strong>Acontext</strong></a> 驱动
@@ -15,9 +15,9 @@
   </p>
   
   <p align="center">
-    <img src="./public/fonts/character1/ppt%20girl.png" alt="PPT Girl - 首页角色" width="300" />
+    <img src="./public/fonts/character1/ppt%20girl.png" alt="Notebook Girl - 首页角色" width="300" />
     &nbsp;&nbsp;&nbsp;
-    <img src="./public/fonts/character1/ppt_girl_chatbot.png" alt="PPT Girl - 聊天机器人头像" width="200" />
+    <img src="./public/fonts/character1/ppt_girl_chatbot.png" alt="Notebook Girl - 聊天机器人头像" width="200" />
   </p>
 </div>
 
@@ -41,26 +41,26 @@
 
 <br/>
 
-**Acontext PPT Girl Slide Generator** 是一个由 [Acontext](https://acontext.io) 驱动的智能 PPT 幻灯片生成系统。只需与 **"PPT Girl"** 对话，描述您的演示主题，她就会自动为您创建精美的赛博朋克风格幻灯片图片。
+**Notebook Girl · AI 笔记助手** 是一个由 [Acontext](https://acontext.io) 驱动的智能 智能笔记生成系统。只需与 **"Notebook Girl"** 对话，描述您的演示主题，她就会自动为您创建精美的结构化笔记页面。
 
 ## 🎯 核心功能
 
-通过自然对话将文本转换为专业 PPT 幻灯片：
+通过自然对话将文本转换为专业笔记：
 
-1. **输入**：提供演示内容（文本、主题或大纲）
-2. **规划**：PPT Girl 提出逐页幻灯片大纲
+1. **输入**：提供内容（文本、主题或大纲）
+2. **规划**：Notebook Girl 提出结构化笔记大纲
 3. **确认**：审查并确认大纲
-4. **生成**：PPT Girl 生成 16:9 赛博朋克风格幻灯片图片
-5. **交付**：幻灯片自动存储并可通过 URL 访问
+4. **生成**：Notebook Girl 生成 16:9 笔记页面
+5. **交付**：笔记自动存储并可通过 URL 访问
 
 ## ✨ 主要特性
 
-- **🎨 AI 驱动生成**：自然语言对话创建专业幻灯片
-- **🎨 一致的视觉风格**：所有幻灯片共享统一的赛博朋克美学
-- **💾 持久记忆**：记住您之前的幻灯片和偏好，跨会话保持
+- **🎨 AI 驱动生成**：自然语言对话创建结构化笔记
+- **🎨 一致的视觉风格**：所有笔记保持统一的视觉风格
+- **💾 持久记忆**：记住您之前的笔记和偏好，跨会话保持
 - **🔍 语义搜索**：自动保持风格一致性
-- **📦 自动存储**：所有幻灯片存储在 Acontext Disk 中，提供可分享 URL
-- **🔄 交互式工作流**：生成前审查大纲，可针对单张幻灯片迭代
+- **📦 自动存储**：所有笔记存储在 Acontext Disk 中，提供可分享 URL
+- **🔄 交互式工作流**：生成前审查大纲，可针对特定笔记迭代
 
 ## 🛠️ 技术栈
 
@@ -84,8 +84,8 @@
 1. **克隆仓库**
 
 ```bash
-git clone https://github.com/mbt1909432/ppt-girl.git
-cd ppt-girl
+git clone https://github.com/mbt1909432/notebook-girl.git
+cd notebook-girl
 ```
 
 2. **安装依赖**
@@ -146,7 +146,7 @@ npm run dev
 
 ### 部署到 Vercel
 
-[![使用 Vercel 部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmbt1909432%2Fppt-girl&ref=main&project-name=ppt-girl&repository-name=ppt-girl&demo-title=Acontext%20PPT%20Girl%20Slide%20Generator&demo-description=%E5%9F%BA%E4%BA%8E%20Acontext%20%E7%9A%84%20PPT%20%E9%A3%8E%E6%A0%BC%E5%B9%BB%E7%81%AF%E7%89%87%E7%94%9F%E6%88%90%EF%BC%8C%E5%AF%B9%E8%AF%9D%E5%BC%8F%E6%B5%81%E7%A8%8B%E3%80%81%E4%B8%8A%E4%B8%8B%E6%96%87%E8%AE%B0%E5%BF%86%E5%92%8C%E7%AE%80%E5%8E%86%E7%AE%A1%E7%90%86%E5%BC%95%E6%93%8E%E6%94%AF%E6%92%91%E3%80%82&demo-url=https%3A%2F%2Fppt-girl.vercel.app)
+[![使用 Vercel 部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmbt1909432%2Fnotebook-girl&ref=main&project-name=notebook-girl&repository-name=notebook-girl&demo-title=Acontext%20Notebook%20Girl%20AI%20Note%20Assistant&demo-description=%E5%9F%BA%E4%BA%8E%20Acontext%20%E7%9A%84%20AI%20%E7%AC%94%E8%AE%B0%E5%8A%A9%E6%89%8B%EF%BC%8C%E5%AF%B9%E8%AF%9D%E5%BC%8F%E6%B5%81%E7%A8%8B%E3%80%81%E4%B8%8A%E4%B8%8B%E6%96%87%E8%AE%B0%E5%BF%86%E5%92%8C%E7%AE%80%E5%8E%86%E7%AE%A1%E7%90%86%E5%BC%95%E6%93%8E%E6%94%AF%E6%92%91%E3%80%82&demo-url=https%3A%2F%2Fnotebook-girl.vercel.app)
 
 1. 点击上面的"使用 Vercel 部署"按钮
 2. Vercel 将引导您完成 Supabase 设置
