@@ -2073,7 +2073,7 @@ export function ChatbotPanel({
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "your_slides.pdf";
+      link.download = "your_notes.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -3359,10 +3359,10 @@ export function ChatbotPanel({
                   size="sm"
                   onClick={() => setRightDrawerOpen(true)}
                   className="text-xs h-7 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 inline-flex items-center gap-1.5"
-                  aria-label="打开幻灯片列表"
+                  aria-label="打开笔记列表"
                 >
                   <Images className="h-3.5 w-3.5 text-primary" />
-                  <span className="text-primary">Slides</span>
+                  <span className="text-primary">Notes</span>
                 </Button>
               )}
               {/* Sample prompts (Describe monitoring scenario, Provide context) - hidden to save space */}
@@ -3747,7 +3747,7 @@ export function ChatbotPanel({
           </div>
         </div>
 
-        {/* Files modal — rendered via Portal so overlay covers Slides sidebar */}
+        {/* Files modal — rendered via Portal so overlay covers Notes sidebar */}
         {isFilesModalOpen && createPortal(
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-md" onClick={() => setIsFilesModalOpen(false)} role="presentation">
             <div
@@ -4160,7 +4160,7 @@ export function ChatbotPanel({
           document.body
         )}
 
-        {/* Tools modal — rendered via Portal so overlay covers Slides sidebar */}
+        {/* Tools modal — rendered via Portal so overlay covers Notes sidebar */}
         {isToolsModalOpen && createPortal(
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-md" onClick={() => setIsToolsModalOpen(false)} role="presentation">
             <div
@@ -4293,17 +4293,17 @@ export function ChatbotPanel({
         </div>
       )}
 
-      {/* Right side: Slides sidebar — lg+ and open */}
+      {/* Right side: Notes sidebar — lg+ and open */}
       {isLg && rightSidebarOpen && (
         <aside className="relative flex h-full w-64 flex-shrink-0 flex-col border-l bg-card px-4 py-3">
           <div className="flex flex-col flex-1 min-h-0">
             <div className="flex items-center justify-between gap-2 pb-2">
-              <span className="text-sm font-semibold text-foreground">Slides</span>
+              <span className="text-sm font-semibold text-foreground">Notes</span>
               <button
                 type="button"
                 onClick={() => setRightSidebarOpen(false)}
                 className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-                aria-label="收起幻灯片列表"
+                aria-label="收起笔记列表"
               >
                 <PanelRightClose className="h-4 w-4" />
               </button>
@@ -4314,12 +4314,12 @@ export function ChatbotPanel({
               {files.filter(f => {
                 const { isImage } = detectFileType(f.filename, f.mimeType);
                 return isImage;
-              }).length} slide{files.filter(f => {
+              }).length} note{files.filter(f => {
                 const { isImage } = detectFileType(f.filename, f.mimeType);
                 return isImage;
               }).length !== 1 ? 's' : ''}
             </div>
-            {/* Select all and Download PPT buttons */}
+            {/* Select all and Download PDF buttons */}
             {files.filter(f => {
               const { isImage } = detectFileType(f.filename, f.mimeType);
               return isImage;
@@ -4362,7 +4362,7 @@ export function ChatbotPanel({
                   ) : (
                     <>
                       <Download className="mr-1 h-3 w-3" />
-                      Download ({selectedFiles.length}) PPT
+                      Download ({selectedFiles.length}) PDF
                     </>
                   )}
                 </Button>
@@ -4374,7 +4374,7 @@ export function ChatbotPanel({
             <div className="flex items-center justify-center py-8">
               <Loader2 className="h-4 w-4 animate-spin text-primary" />
               <span className="ml-2 text-xs text-muted-foreground">
-                Loading slides...
+                Loading notes...
               </span>
             </div>
           )}
@@ -4394,7 +4394,7 @@ export function ChatbotPanel({
             <div className="py-8 text-center">
               <File className="mx-auto h-8 w-8 text-muted-foreground/40 mb-2" />
               <div className="text-xs text-muted-foreground">
-                No slides found
+                No notes found
               </div>
             </div>
           )}
@@ -4646,9 +4646,9 @@ export function ChatbotPanel({
         </div>
       )}
 
-      {/* Slides drawer (tablet + mobile) */}
+      {/* Notes drawer (tablet + mobile) */}
       {rightDrawerOpen && !isLg && (
-        <div className="fixed inset-0 z-40 flex" role="dialog" aria-modal="true" aria-label="幻灯片列表">
+        <div className="fixed inset-0 z-40 flex" role="dialog" aria-modal="true" aria-label="笔记列表">
           <div
             className="absolute inset-0 bg-black/50"
             aria-hidden="true"
@@ -4663,7 +4663,7 @@ export function ChatbotPanel({
             <div className="flex items-center justify-between gap-2 border-b px-4 py-3">
               <span className="text-sm font-semibold flex items-center gap-2">
                 <FolderOpen className="h-4 w-4 text-primary" />
-                Slides
+                Notes
               </span>
               <button
                 type="button"
@@ -4676,7 +4676,7 @@ export function ChatbotPanel({
             </div>
             <div className="scrollbar-subtle flex-1 overflow-y-auto px-4 py-3 space-y-4">
               <div className="text-xs text-muted-foreground">
-                {files.filter(f => { const { isImage } = detectFileType(f.filename, f.mimeType); return isImage; }).length} slide
+                {files.filter(f => { const { isImage } = detectFileType(f.filename, f.mimeType); return isImage; }).length} note
                 {files.filter(f => { const { isImage } = detectFileType(f.filename, f.mimeType); return isImage; }).length !== 1 ? "s" : ""}
               </div>
               {files.filter(f => { const { isImage } = detectFileType(f.filename, f.mimeType); return isImage; }).length > 0 && (
@@ -4692,14 +4692,14 @@ export function ChatbotPanel({
                     <label htmlFor="select-all-images-drawer" className="text-xs font-medium cursor-pointer">Select all</label>
                   </div>
                   <Button onClick={handleBatchDownload} disabled={isBatchDownloading || selectedFiles.length === 0} size="sm" variant="outline" className="w-full text-xs">
-                    {isBatchDownloading ? <><Loader2 className="mr-1 h-3 w-3 animate-spin" />Generating...</> : <><Download className="mr-1 h-3 w-3" />Download ({selectedFiles.length}) PPT</>}
+                    {isBatchDownloading ? <><Loader2 className="mr-1 h-3 w-3 animate-spin" />Generating...</> : <><Download className="mr-1 h-3 w-3" />Download ({selectedFiles.length}) PDF</>}
                   </Button>
                 </div>
               )}
               {isFilesLoading && files.length === 0 && (
                 <div className="flex items-center justify-center py-8">
                   <Loader2 className="h-4 w-4 animate-spin text-primary" />
-                  <span className="ml-2 text-xs text-muted-foreground">Loading slides...</span>
+                  <span className="ml-2 text-xs text-muted-foreground">Loading notes...</span>
                 </div>
               )}
               {filesError && (
@@ -4710,7 +4710,7 @@ export function ChatbotPanel({
               {!isFilesLoading && !filesError && files.filter(f => { const { isImage } = detectFileType(f.filename, f.mimeType); return isImage; }).length === 0 && (
                 <div className="py-8 text-center">
                   <File className="mx-auto h-8 w-8 text-muted-foreground/40 mb-2" />
-                  <div className="text-xs text-muted-foreground">No slides found</div>
+                  <div className="text-xs text-muted-foreground">No notes found</div>
                 </div>
               )}
               <div className="space-y-2">

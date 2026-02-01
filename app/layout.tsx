@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "Chat with AI note assistants to create structured 16:9 note pages. Choose your note style, propose an outline, and generate beautiful notes.",
   icons: {
     icon: { url: "/icon.svg", type: "image/svg+xml" },
-    apple: "/apple-icon.png",
+    apple: { url: "/icon.svg", type: "image/svg+xml" },
   },
 };
 

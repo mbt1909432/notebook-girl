@@ -478,7 +478,7 @@ export default function Home() {
                   <CardContent className="pt-6">
                     <h3 className="text-lg font-semibold mb-2">🎨 Style Consistency</h3>
                     <p className="text-sm text-muted-foreground">
-                      Semantic search ensures all slides maintain visual consistency and match your preferred style.
+                      Semantic search ensures all notes maintain visual consistency and match your preferred style.
                     </p>
                   </CardContent>
                 </Card>

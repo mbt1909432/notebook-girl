@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
 
     // Create a new PDF document
     const pdfDoc = await PDFDocument.create();
-    pdfDoc.setTitle("Slides");
+    pdfDoc.setTitle("Notes");
     pdfDoc.setAuthor("Acontext Agent");
     pdfDoc.setProducer("Acontext");
 
@@ -169,7 +169,7 @@ export async function POST(request: NextRequest) {
         {
           success: false,
           error:
-            "No valid images could be added to the PDF. Please try regenerating slides or refreshing the page.",
+            "No valid images could be added to the PDF. Please try regenerating notes or refreshing the page.",
         },
         { status: 422 }
       );
@@ -189,7 +189,7 @@ export async function POST(request: NextRequest) {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": `attachment; filename="your_slides.pdf"`,
+        "Content-Disposition": `attachment; filename="your_notes.pdf"`,
         ...(errors.length > 0 && {
           "X-Errors": JSON.stringify(errors),
         }),
